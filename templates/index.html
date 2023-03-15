@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf OCR</title>
+</head>
+<body>
+    <h1>Bookshelf OCR</h1>
+    <span>Upload a photo of your bookshelf and I'll print a list of your books here for you to use for, you know, reasons.</span>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="bookshelf_image" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    {% if titles %}
+        <h2>Book Titles:</h2>
+        <ul>
+            {% for title in titles %}
+                <li>{{ title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
